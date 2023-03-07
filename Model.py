@@ -1,35 +1,42 @@
-import torch
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+import re
+print("Please choose your preferences below: ")
+preferenceDict ={}
 
-# Load the pre-trained GPT-2 model and tokenizer
-model = GPT2LMHeadModel.from_pretrained('gpt2')
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+questions = [
+    "yes or yeh",
+    "no or nah",
+    "want to or wanna",
+    "going to or gonna"
+]
 
-# Set the generation parameters
-max_length = 30
-num_return_sequences = 3
-temperature = 0.6  # Increase temperature to generate more diverse responses
-top_p = 0.9  # Introduce top-p sampling to limit the set of tokens considered at each step
-top_k = 50  # Further limit the set of tokens considered by setting a maximum number to sample from
+for i in range(0,len(questions)):
+    response = input(questions[i] + " (1/2) ")
+    splitquestion = questions[i].split(" or ")
+    currentkey = splitquestion[0] + " Preference"
+    if response == "1":
+        preferenceDict[currentkey] = splitquestion[0]
+    elif response == "2":
+        preferenceDict[currentkey] = splitquestion[1]
+        
+def identify_question_type(question):
+    # Define a regular expression to match yes/no/maybe questions
+    yes_no_re = r'^\s*(can|could|should|would|will|is|am|are|was|were|do|does|did|have|has|had)\s*.*\?$'
 
-# Encode the input question
-prompt = "Is the following a yes/no question? Would you like coffee?"
-input_ids = tokenizer.encode(prompt, return_tensors='pt')
+    # Check if the question matches the regular expression
+    if re.match(yes_no_re, question):
+        return "yes/no/maybe"
+    else:
+        return "other"         
 
-# Generate the responses
-output_ids = model.generate(
-    input_ids=input_ids,
-    max_length=max_length,
-    num_return_sequences=num_return_sequences,
-    temperature=temperature,
-    no_repeat_ngram_size=2,
-    repetition_penalty=1.0,
-    do_sample=True,
-    top_p=top_p,
-    top_k=top_k
-)
+def provide_options(question_type):
+    if question_type == "yes/no/maybe":
+        yesPreference = preferenceDict.get("yes Preference")
+        noPreference = preferenceDict.get("no Preference")
+        return f"Options: {yesPreference}, {noPreference}, Maybe"
+    else:
+        return "Sorry, no options available for this type of question."
 
-# Decode and print the responses
-for i, output in enumerate(output_ids):
-    print(f"{i+1}. {tokenizer.decode(output, skip_special_tokens=True)}")
-
+# Example usage:
+question = "How are you feeling today?"
+question = question.lower()
+question_type = identify_question_type(question)
