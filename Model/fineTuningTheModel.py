@@ -3,7 +3,6 @@ from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
 
-data = np.loadtxt("datasets\YNMDataset.txt", delimiter=",", dtype=str)
 # Define a custom dataset class
 class YesNoMaybeDataset(Dataset):
     def __init__(self, questions, labels, tokenizer, max_length):
@@ -29,8 +28,26 @@ num_epochs = 3
 max_length = 64
 
 # Define the questions and their corresponding labels
-questions = data[:, 0]
-labels = data[:,1]
+questions = [
+    "do you want coffee?",
+    "do you feel pain in this area?",
+    "can you help me with this?",
+    "should I buy this product?",
+    "will it rain today?",
+    "did you like the movie?",
+    "would you like to go out for dinner?",
+    "is this your favorite color?"
+]
+labels = [
+    0, # yes/no/maybe
+    0, # yes/no/maybe
+    1, # other
+    0, # yes/no/maybe
+    0, # yes/no/maybe
+    0, # yes/no/maybe
+    0, # yes/no/maybe
+    0  # yes/no/maybe
+]
 
 # Initialize the tokenizer and the model
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
