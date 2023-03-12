@@ -20,6 +20,8 @@ for i in range(0,len(questions)):
         
 def identify_question_type(question):
     # Define a regular expression to match yes/no/maybe questions
+    # ---- Problems, some can could questions cannot be answered by yes, no maybe, we should have a 
+    # more accurate regex/ machine learning model
     yes_no_re = r'^\s*(can|could|should|would|will|is|am|are|was|were|do|does|did|have|has|had)\s*.*\?$'
 
     # Check if the question matches the regular expression
@@ -37,6 +39,8 @@ def provide_options(question_type):
         return "Sorry, no options available for this type of question."
 
 # Example usage:
-question = "How are you feeling today?"
+question = "can are you feeling today?"
 question = question.lower()
 question_type = identify_question_type(question)
+print(question)
+print(question_type)

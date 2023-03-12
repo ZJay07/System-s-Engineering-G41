@@ -1,0 +1,68 @@
+Question,Label
+Do you have any allergies?,1
+Have you ever had surgery?,1
+Do you smoke?,1
+Have you been feeling tired lately?,1
+Do you have trouble sleeping?,1
+Have you experienced any chest pain?,1
+Have you ever had a heart attack?,1
+Do you experience shortness of breath?,1
+Do you experience dizziness or lightheadedness?,1
+Do you have any chronic conditions?,1
+Do you take any medications?,1
+Do you have any concerns about your weight?,1
+Do you have any concerns about your blood pressure?,1
+Do you have any concerns about your cholesterol?,1
+Have you had any recent injuries?,1
+Have you had any recent illnesses?,1
+Have you experienced any joint pain?,1
+Have you experienced any back pain?,1
+Do you have any concerns about your mental health?,1
+Do you experience anxiety or depression?,1
+Have you had any changes in your vision?,1
+Do you have any dental problems?,1
+Do you have any concerns about your hearing?,1
+Do you experience ringing in your ears?,1
+Do you have any skin conditions?,1
+Do you have any concerns about your sexual health?,1
+Have you had any recent changes in your menstrual cycle?,1
+Have you ever been diagnosed with diabetes?,1
+Do you experience frequent urination?,1
+Do you have any concerns about your kidneys?,1
+Do you have any concerns about your liver?,1
+Have you ever been diagnosed with cancer?,1
+Have you had any recent infections?,1
+Do you have any concerns about your immune system?,1
+Have you ever had a sexually transmitted infection?,1
+Do you experience any gastrointestinal problems?,1
+Do you have any concerns about your diet?,1
+Do you have any concerns about your alcohol intake?,1
+Do you have any concerns about your drug use?,1
+Do you have any concerns about your work environment?,1
+Do you have any concerns about your home environment?,1
+Have you ever been exposed to hazardous substances?,1
+Do you have any concerns about your relationships?,1
+Do you have any concerns about your family history?,1
+Do you have any concerns about your social support?,1
+Do you have any concerns about your financial situation?,1
+Do you have any concerns about your housing situation?,1
+Do you have any concerns about your transportation?,1
+Do you have any concerns about your access to healthcare?,1
+Do you have any concerns about your access to healthy food?,1
+Do you have any concerns about your access to physical activity?,1
+Do you have any concerns about your access to green spaces?,1
+Do you have any concerns about your access to community resources?,1
+Do you have any concerns about your access to education?,1
+Do you have any concerns about your access to employment?,1
+Do you have any concerns about your access to childcare?,1
+Do you have any concerns about your access to eldercare?,1
+Do you have any concerns about your access to disability services?,1
+Do you have any concerns about your access to legal services?,1
+Do you have any concerns about your access to mental health services?,1
+Do you have any concerns about your access to substance abuse services?,1
+Do you have any concerns about your access to transportation services?,1
+Do you have any concerns about your access to social services?,1
+Do you have any concerns about your access to housing services?,1
+Do you have any concerns about your access to financial services?,1
+Do you have any concerns about your access to employment services?,1
+Do you
