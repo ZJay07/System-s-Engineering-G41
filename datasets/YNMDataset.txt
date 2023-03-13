@@ -65,4 +65,3 @@ Do you have any concerns about your access to social services?,1
 Do you have any concerns about your access to housing services?,1
 Do you have any concerns about your access to financial services?,1
 Do you have any concerns about your access to employment services?,1
-Do you

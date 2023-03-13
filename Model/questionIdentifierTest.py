@@ -13,7 +13,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 fine_tuned_model.to(device)
 
 # Test the model on a prompt
-prompt = "Do you want Food?"
+prompt = "Have you ever had surgery?"
 input_ids = tokenizer.encode(prompt, return_tensors='pt').to(device)
 output = fine_tuned_model.generate(input_ids, max_length=50, do_sample=True, temperature=0.7)
 
