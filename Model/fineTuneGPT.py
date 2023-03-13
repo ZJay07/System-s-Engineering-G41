@@ -1,6 +1,6 @@
 from torch.utils.data import Dataset, DataLoader
 import pandas as pd
-from transformers import GPT2LMHeadModel, GPT2Tokenizer, GPT2LMHeadModel,AdamW
+from transformers import GPT2LMHeadModel, GPT2Tokenizer, GPT2LMHeadModel,AdamW, AutoTokenizer, AutoModelForCausalLM
 import numpy as np 
 import torch
 
@@ -24,7 +24,7 @@ class MNDDataset(Dataset):
         inputs = self.tokenizer.encode_plus(
             self.examples[idx],
             add_special_tokens=True,
-            max_length=512,
+            max_length=1024,
             truncation=True,
             padding='max_length',
             return_tensors='pt'
@@ -34,11 +34,13 @@ class MNDDataset(Dataset):
             'attention_mask': inputs['attention_mask'][0]
         }
 
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-model = GPT2LMHeadModel.from_pretrained('gpt2')
+# tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+# model = GPT2LMHeadModel.from_pretrained('gpt2')
+tokenizer = AutoTokenizer.from_pretrained("sshleifer/tiny-gpt2")
+model = AutoModelForCausalLM.from_pretrained("sshleifer/tiny-gpt2")
 
-train_dataset = MNDDataset('Model\mnd_facts.txt', tokenizer)
-train_loader = DataLoader(train_dataset, batch_size=1, shuffle=True)
+train_dataset = MNDDataset('datasets\mnd_facts.txt', tokenizer)
+train_loader = DataLoader(train_dataset, batch_size=8, shuffle=True)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
